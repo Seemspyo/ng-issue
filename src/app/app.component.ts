@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Test, TestModule } from './lib';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,13 @@ import { Test, TestModule } from './lib';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  
+  constructor(
+    private router: Router
+  ) {}
 
-  title = 'test';
-  testProp: Test;
-  a = new TestModule();
+  public navigate() {
+    this.router.navigateByUrl('/depth-test');
+  }
 
 }
